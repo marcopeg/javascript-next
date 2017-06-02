@@ -1,9 +1,11 @@
 // Project's CSS
+
 // in production we load bootstrap from CDN
 if (process.env.NODE_ENV === 'development') {
     require('bootstrap/dist/css/bootstrap.css')
 }
 
+// our custom css
 require('./project.css')
 
 // Javascript dependencies
