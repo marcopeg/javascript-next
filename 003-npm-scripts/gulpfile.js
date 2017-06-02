@@ -38,4 +38,4 @@ gulp.task('serve', function () {
         }))
 })
 
-gulp.task('default', gulpSequence(['build', 'serve', 'watch']))
+gulp.task('default', gulpSequence('build', 'serve', 'watch'))
