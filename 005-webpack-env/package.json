@@ -1,0 +1,28 @@
+{
+  "name": "004-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "http-server": "^0.10.0",
+    "raw-loader": "^0.5.1",
+    "string-replace-loader": "^1.2.0",
+    "style-loader": "^0.18.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "scripts": {
+    "start": "yarn install && ./node_modules/.bin/webpack-dev-server -d --inline --progress --colors --host 0.0.0.0 --port 3000 --open",
+    "build": "yarn install && rm -rf dist && ./node_modules/.bin/webpack --config webpack.config.prod.js",
+    "serve": "yarn build && ./node_modules/.bin/http-server ./dist -p 3000 -o"
+  }
+}
