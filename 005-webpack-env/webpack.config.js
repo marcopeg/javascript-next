@@ -19,7 +19,7 @@ module.exports = {
     module: {
         loaders: [
             // CSS
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
+            { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap' },
             // Fonts
             { test: /\.svg$/, loader: 'url-loader?mimetype=image/svg+xml&name=assets/fonts/[name].[ext]' },
             { test: /\.woff$/, loader: 'url-loader?mimetype=application/font-woff&name=assets/fonts/[name].[ext]' },
