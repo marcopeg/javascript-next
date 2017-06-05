@@ -1,11 +1,5 @@
 // Project's CSS
-
-// in production we load bootstrap from CDN
-if (process.env.NODE_ENV === 'development') {
-    require('bootstrap/dist/css/bootstrap.css')
-}
-
-// our custom css
+require('bootstrap/dist/css/bootstrap.css')
 require('./project.css')
 
 // Javascript dependencies
@@ -16,4 +10,6 @@ $('a')
     .attr('target', '_blank')
     .append(' <span class="glyphicon glyphicon-link" aria-hidden="true"></span>')
 
-console.log('up and running')
+if (process.env.NODE_ENV === 'development') {
+    console.log('up and running in development mode...')
+}

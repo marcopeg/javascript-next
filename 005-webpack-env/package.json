@@ -13,6 +13,7 @@
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
     "http-server": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^2.0.0",
     "style-loader": "^0.18.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
