@@ -1,3 +1,4 @@
+const pkg = require('./package.json')
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -7,6 +8,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const sourcePath = path.join(__dirname, 'src')
 const destPath = path.join(__dirname, 'dist')
 
+// Bundle name with version suffix coming from the main project's manifest
+const versionSuffix = '.' + pkg.version.replace(/\./g,'_')
+
 module.exports = {
     entry: {
         project: [path.join(sourcePath, 'assets', 'project.js')]
@@ -14,7 +18,7 @@ module.exports = {
     output: {
         path: destPath,
         publicPath: '.',
-        filename: 'assets/[name].js'
+        filename: 'assets/[name]' + versionSuffix + '.js'
     },
     externals: {
         jquery: 'jQuery'
@@ -47,7 +51,7 @@ module.exports = {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        new ExtractTextPlugin('assets/[name].css'),
+        new ExtractTextPlugin('assets/[name]' + versionSuffix + '.css'),
         new OptimizeCssAssetsPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({
