@@ -21,14 +21,18 @@ module.exports = {
     },
     module: {
         loaders: [
-            // CSS
+            // CSS (exclude Bootstrap as we load it from CDN)
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: 'css-loader'
-                })
+                }),
+                exclude: [
+                    /bootstrap.css$/
+                ]
             },
+            { test: /bootstrap.css$/, loader: 'ignore-loader' },
             // Fonts
             { test: /\.svg$/, loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]' },
             { test: /\.woff$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]' },
