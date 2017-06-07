@@ -9,3 +9,5 @@ A list of projects setups using modern tools
 - [Webpack: transpilers](./006-webpack-transpilers.md)
 - [Webpack: CSS modules](./007-webpack-css-modules.md)
 - [Webpack: code splitting](./008-webpack-code-splitting.md)
+- [Webpack & Flow](./009-webpack-flow.md)
+- [Webpack & TypeScript](./010-webpack-typescript.md)

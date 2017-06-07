@@ -23,8 +23,21 @@ module.exports = {
     externals: {
         jquery: 'jQuery'
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
+            // Javascript NEXT
+            { test: /\.jsx?$/, loader: 'babel-loader', options: {
+                presets: [
+                    'es2015',
+                    'react',
+                ],
+                plugins: [
+                    'transform-object-rest-spread'
+                ]
+            }},
             // CSS (exclude Bootstrap as we load it from CDN)
             {
                 test: /\.css$/,

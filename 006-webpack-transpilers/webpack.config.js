@@ -16,8 +16,21 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js'
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
+            // Javascript NEXT
+            { test: /\.jsx?$/, loader: 'babel-loader', options: {
+                presets: [
+                    'es2015',
+                    'react',
+                ],
+                plugins: [
+                    'transform-object-rest-spread'
+                ]
+            }},
             // CSS
             { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap' },
             // CSS Preprocessors
