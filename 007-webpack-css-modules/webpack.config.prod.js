@@ -23,21 +23,81 @@ module.exports = {
     externals: {
         jquery: 'jQuery'
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
+            // Javascript NEXT
+            { test: /\.jsx?$/, loader: 'babel-loader', options: {
+                presets: [
+                    'es2015',
+                    'react',
+                ],
+                plugins: [
+                    'transform-object-rest-spread'
+                ]
+            }},
             // CSS (exclude Bootstrap as we load it from CDN)
+            // global styles
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: 'css-loader'
                 }),
+                include: [
+                    path.join(__dirname, 'node_modules'),
+                    path.join(__dirname, 'src/assets/styles')
+                ],
                 exclude: [
                     /bootstrap.css$/
                 ]
             },
             // Forcefully exclude Bootstrap as we load it from CDN
             { test: /bootstrap.css$/, loader: 'ignore-loader' },
+            // CSS (with modules)
+            {
+                test: /\.css$/,
+                exclude: [
+                    path.join(__dirname, 'node_modules'),
+                    path.join(__dirname, 'src/assets/styles')
+                ],
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[hash:base64:5]'
+                        }
+                    }]
+                })
+            },
+            // LESS Preprocessors
+            {
+                test: /\.less/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!less-loader'
+                }),
+            },
+            // SASS Preprocessors
+            {
+                test: /\.scss/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!sass-loader'
+                }),
+            },
+            // STYLUS Preprocessors
+            {
+                test: /\.styl/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!stylus-loader'
+                }),
+            },
             // Fonts
             { test: /\.svg$/, loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]' },
             { test: /\.woff$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]' },
