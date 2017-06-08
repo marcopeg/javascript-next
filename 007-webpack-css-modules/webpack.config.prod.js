@@ -119,11 +119,5 @@ module.exports = {
             title: 'Webpack',
             template: path.join(sourcePath, 'index.prod.html')
         })
-    ],
-    devServer: {
-        contentBase: destPath,
-        stats: {
-            warnings: false
-        }
-    }
+    ]
 }
