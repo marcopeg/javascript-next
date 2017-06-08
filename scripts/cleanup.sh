@@ -5,3 +5,4 @@
 (cd ./005-webpack-env && rm -rf node_modules && rm -rf dist)
 (cd ./006-webpack-transpilers && rm -rf node_modules && rm -rf dist)
 (cd ./007-webpack-css-modules && rm -rf node_modules && rm -rf dist)
+(cd ./008-webpack-code-splitting && rm -rf node_modules && rm -rf dist)
