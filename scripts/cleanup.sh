@@ -1,0 +1,7 @@
+(cd ./001-dependencies && rm -rf node_modules)
+(cd ./002-tasks-manager && rm -rf node_modules && rm -rf dist)
+(cd ./003-npm-scripts && rm -rf node_modules && rm -rf dist)
+(cd ./004-webpack && rm -rf node_modules && rm -rf dist)
+(cd ./005-webpack-env && rm -rf node_modules && rm -rf dist)
+(cd ./006-webpack-transpilers && rm -rf node_modules && rm -rf dist)
+(cd ./007-webpack-css-modules && rm -rf node_modules && rm -rf dist)
